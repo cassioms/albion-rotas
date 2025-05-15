@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albion Rotas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Adicionar conexão</h2>
+            <form id="connection-form">
+                <div class="form-group">
+                    <label for="node1">Origem:</label>
+                    <input type="text" id="node1" name="node1" list="mapList1" required autocomplete="off">
+                    <datalist id="mapList1"></datalist>
+                </div>
+                <div class="form-group">
+                    <label for="node2">Destino:</label>
+                    <input type="text" id="node2" name="node2" list="mapList2" required autocomplete="off">
+                    <datalist id="mapList2"></datalist>
+                </div>
+                <div class="form-group">
+                    <div class="permanent-connection">
+                        <input type="checkbox" id="isPermanent" name="isPermanent">
+                        <label for="isPermanent">Conexão Permanente</label>
+                    </div>
+                    <div id="time-group">
+                        <label>Tempo restante:</label>
+                        <div class="time-inputs">
+                            <div class="time-input">
+                                <input type="number" id="hours" name="hours" min="0" value="0" required>
+                                <span>horas</span>
+                            </div>
+                            <div class="time-input">
+                                <input type="number" id="minutes" name="minutes" min="0" max="59" value="0" required>
+                                <span>minutos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Adicionar</button>
+            </form>
+            <button id="remove-connection" style="display: none; background-color: #dc3545; margin-top: 10px;">Remover conexão</button>
+        </div>
+        <div class="graph-section">
+            <div id="header" class="header"></div>
+            <div id="graph-container"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="maps.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
